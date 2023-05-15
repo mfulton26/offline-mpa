@@ -29,7 +29,7 @@ serve((request) =>
         ],
         plugins: [
           ...denoPlugins({
-            importMapURL: new URL("/importMap.json", request.url).href,
+            importMapURL: new URL("./importMap.json", import.meta.url).href,
             loader: "portable",
           }),
         ],

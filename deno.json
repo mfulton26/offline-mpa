@@ -7,5 +7,5 @@
   "tasks": {
     "start": "deno run -A --watch main.ts"
   },
-  "importMap": "./routes/importMap.json"
+  "importMap": "./importMap.json"
 }

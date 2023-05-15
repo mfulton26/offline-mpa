@@ -39,14 +39,6 @@ routes.set(
       Responses.notFound(),
 );
 
-routes.set(
-  new URLPattern({ pathname: "/importMap.json" }),
-  async () => {
-    const { readable: body } = await Deno.open("./routes/importMap.json");
-    return Responses.json(body);
-  },
-);
-
 export default routes;
 
 export function handler(
