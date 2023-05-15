@@ -22,7 +22,9 @@ routes.set(
 
 routes.set(
   "/index.js",
-  (_, { bundle }) => bundle?.("./routes/index.js.tsx") ?? Responses.notFound(),
+  (_, { bundle }) =>
+    bundle?.(new URL("./routes/index.js.tsx", import.meta.url).href) ??
+      Responses.notFound(),
 );
 
 routes.set(
@@ -32,7 +34,9 @@ routes.set(
 
 routes.set(
   new URLPattern({ pathname: "/sw.js" }),
-  (_, { bundle }) => bundle?.("./routes/sw.js.ts") ?? Responses.notFound(),
+  (_, { bundle }) =>
+    bundle?.(new URL("./routes/sw.js.ts", import.meta.url).href) ??
+      Responses.notFound(),
 );
 
 routes.set(
