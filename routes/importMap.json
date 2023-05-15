@@ -1,7 +1,7 @@
 {
   "imports": {
     "esbuild-deno-loader": "https://deno.land/x/esbuild_deno_loader@0.7.0/mod.ts",
-    "esbuild": "https://deno.land/x/esbuild@v0.17.19/mod.js",
+    "esbuild": "https://deno.land/x/esbuild@v0.17.18/mod.js",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client?dev",
     "react-dom/server": "https://esm.sh/react-dom@18.2.0/server?dev",
     "react": "https://esm.sh/react@18.2.0?dev",
