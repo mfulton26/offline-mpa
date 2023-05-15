@@ -1,10 +1,12 @@
 import { serve } from "std/http/server.ts";
 
-import { build } from "esbuild";
+import { build, initialize } from "esbuild";
 import { denoPlugins } from "esbuild-deno-loader";
 
 import { handler } from "./routes.tsx";
 import * as Responses from "./Responses.ts";
+
+await initialize({ worker: false });
 
 serve((request) =>
   handler(request, {
