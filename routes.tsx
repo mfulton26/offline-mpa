@@ -1,3 +1,4 @@
+// cspell:ignore urlpattern
 import "urlpattern-polyfill";
 
 import React from "react";
