@@ -2,7 +2,8 @@
 
 declare let self: ServiceWorkerGlobalScope & typeof globalThis;
 
-import routes, { handler } from "../routes.tsx";
+import handler from "../handler.ts";
+import routes from "../routes.ts";
 
 const cacheName = "v1";
 
@@ -11,8 +12,9 @@ self.addEventListener("install", (event) =>
     (async () => {
       const cache = await caches.open(cacheName);
       await cache.addAll(
-        Array.from(routes.keys())
-          .filter((pattern): pattern is string => typeof pattern === "string"),
+        routes
+          .filter(({ entryPoint }) => entryPoint)
+          .map(({ urlPattern: { pathname } }) => pathname),
       );
     })(),
   ));
@@ -28,6 +30,6 @@ self.addEventListener("fetch", (event) =>
   event.respondWith(
     (async () => {
       const cache = await caches.open(cacheName);
-      return await cache.match(event.request) ?? await handler(event.request);
+      return handler(event.request, { cache });
     })(),
   ));
