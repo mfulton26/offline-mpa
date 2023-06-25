@@ -1,4 +1,4 @@
-import { renderToReadableStream } from "react-dom/server";
+import { renderToString } from "react-dom/server";
 
 export function json(body?: BodyInit | null, init?: ResponseInit) {
   const headers = new Headers(init?.headers);
@@ -24,9 +24,9 @@ export function javascript(body?: BodyInit | null, init?: ResponseInit) {
   return new Response(body, { ...init, headers });
 }
 
-export async function page(children: React.ReactNode) {
-  const body = await renderToReadableStream(children);
-  return html(body);
+export function page(children: React.ReactElement) {
+  // todo: use `renderToReadableStream` once Safari supports `ReadableByteStreamController`
+  return html(renderToString(children));
 }
 
 export function notFound(
