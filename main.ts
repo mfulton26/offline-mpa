@@ -21,9 +21,9 @@ const cache: HandlerCache = {
         "react-dom",
         "react-dom/client",
         "react-dom/server",
-        "https://esm.sh/react@18.2.0?dev",
-        "https://esm.sh/react-dom@18.2.0/client?dev",
-        "https://esm.sh/react-dom@18.2.0/server?dev",
+        "https://esm.sh/react@18.2.0",
+        "https://esm.sh/react-dom@18.2.0/client",
+        "https://esm.sh/react-dom@18.2.0/server",
         "esm.sh/*",
       ],
       plugins: [
